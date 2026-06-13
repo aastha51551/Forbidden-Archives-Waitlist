@@ -7,7 +7,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore, doc, setDoc, getDoc, collection, query, where, getDocs, updateDoc } from "firebase/firestore";
 
 const app = express();
-const PORT = 3000;
+const PORT = Number(process.env.PORT) || 3000;
 
 // Initialize Firebase SDK with lazy validation
 const CONFIG_PATH = path.join(process.cwd(), "firebase-applet-config.json");
