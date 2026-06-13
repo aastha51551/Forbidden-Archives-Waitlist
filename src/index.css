@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif-goth: "Cinzel", Georgia, serif;
+  --font-goth-deco: "Cinzel Decorative", Georgia, serif;
+  --font-typewriter: "Special Elite", "Courier New", Courier, monospace;
+}
+
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+}
+
+/* Atmospheric Custom Animations */
+@keyframes crt-flicker {
+  0% { opacity: 0.985; }
+  50% { opacity: 1; }
+  100% { opacity: 0.992; }
+}
+
+@keyframes title-glow {
+  0%, 100% {
+    text-shadow: 0 0 4px rgba(220, 38, 38, 0.4), 0 0 10px rgba(185, 28, 28, 0.2);
+  }
+  50% {
+    text-shadow: 0 0 12px rgba(220, 38, 38, 0.85), 0 0 24px rgba(185, 28, 28, 0.5);
+  }
+}
+
+@keyframes vignette-pulse {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 0.95; }
+}
+
+/* Apply animations */
+.animate-crt {
+  animation: crt-flicker 0.15s infinite;
+}
+
+.animate-glow {
+  animation: title-glow 3s infinite ease-in-out;
+}
+
+.animate-vignette {
+  animation: vignette-pulse 10s infinite ease-in-out;
+}
+
+/* Custom Goth/Horror Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050101;
+}
+::-webkit-scrollbar-thumb {
+  background: #270606;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #5c0f0f;
+}
+
+body {
+  background-color: #030101;
+  color: #d1d5db;
+  overflow-x: hidden;
+}
+

@@ -1,0 +1,82 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Global Safety Net (Pillar 1)
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Reusable, hardened global helpers (Pillar 3)
+    function isValidId(id) {
+       return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    // Rigid schema validation helper to prevent update-gaps and shadow fields (Pillar 2)
+    function isValidWaitlistEntry(data) {
+      return data.keys().hasAll(['id', 'name', 'email', 'waitlistNumber', 'createdAt', 'prophecy', 'verified', 'verificationToken', 'shares'])
+        && data.keys().size() == 9
+        && data.id is string && data.id.size() <= 128
+        && data.name is string && data.name.size() <= 100
+        && data.email is string && data.email.size() <= 150
+        && (data.waitlistNumber is int || data.waitlistNumber is float)
+        && data.createdAt is string
+        && data.prophecy is string
+        && data.verified is bool
+        && data.verificationToken is string
+        && data.shares is map;
+    }
+
+    match /waitlist/{waitlistId} {
+      // Allow single document lookups to display a user's token matching their ID
+      allow get: if isValidId(waitlistId);
+      
+      // Allow list queries strictly when filtered by verified status, safely handling missing fields (Pillar 8)
+      allow list: if resource.data.get('verified', false) == true;
+      
+      // Permit unauthenticated creation during initial waitlist submission (either unverified with rank 0, or verified instantly upon registration)
+      allow create: if isValidId(waitlistId) 
+        && isValidWaitlistEntry(incoming())
+        && incoming().id == waitlistId
+        && (incoming().verified == true || incoming().verified == false)
+        && incoming().waitlistNumber >= 0;
+
+      // Allow updates only through specific action gates verifying data integrity (Pillar 4)
+      allow update: if isValidId(waitlistId)
+        && isValidWaitlistEntry(incoming())
+        && incoming().id == waitlistId
+        && incoming().email == existing().email
+        && incoming().name == existing().name
+        && incoming().createdAt == existing().createdAt
+        && (
+          // Action 1: Verification transition (Only toggling status and assigning serial waitlist number)
+          (existing().verified == false && incoming().verified == true && incoming().verificationToken == existing().verificationToken && incoming().diff(existing()).affectedKeys().hasOnly(['verified', 'waitlistNumber', 'prophecy']))
+          ||
+          // Action 2: Share recorded transition (Only updating share channels list)
+          (incoming().verified == existing().verified && incoming().waitlistNumber == existing().waitlistNumber && incoming().prophecy == existing().prophecy && incoming().diff(existing()).affectedKeys().hasOnly(['shares']))
+        );
+    }
+
+    // Lookup collections to support unauthenticated duplicate-email and verification token checks securely (Pillar 6)
+    match /emails/{emailId} {
+      allow get, create: if true;
+    }
+
+    match /verification_tokens/{tokenId} {
+      allow get, create: if true;
+    }
+
+    // Global stats collection to cache verified count securely
+    match /stats/{statsId} {
+      allow get, create, update: if true;
+    }
+  }
+}

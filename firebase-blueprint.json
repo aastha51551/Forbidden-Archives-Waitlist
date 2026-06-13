@@ -1,0 +1,75 @@
+{
+  "entities": {
+    "WaitlistEntry": {
+      "title": "WaitlistEntry",
+      "description": "Information about a user registered on the Forbidden Archives waitlist.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique waitlist registry token identifier" },
+        "name": { "type": "string", "description": "Full name of the seeker" },
+        "email": { "type": "string", "format": "email", "description": "Verified email coordinate" },
+        "waitlistNumber": { "type": "integer", "description": "Sequential waitlist number" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Timestamp of initial registration" },
+        "prophecy": { "type": "string", "description": "Generated occult prophecy about this seeker" },
+        "verified": { "type": "boolean", "description": "Whether the seeker has verified their email" },
+        "verificationToken": { "type": "string", "description": "Random verification token" },
+        "shares": {
+          "type": "object",
+          "description": "True indicating channels the user has shared the invitation to",
+          "properties": {
+            "instagram": { "type": "boolean" },
+            "whatsapp": { "type": "boolean" },
+            "sms": { "type": "boolean" }
+          },
+          "required": ["instagram", "whatsapp", "sms"]
+        }
+      },
+      "required": ["id", "name", "email", "waitlistNumber", "createdAt", "verified", "shares"]
+    },
+    "EmailLookup": {
+      "title": "EmailLookup",
+      "description": "Lookup mapping to find tokenId using secure sanitized email address.",
+      "type": "object",
+      "properties": {
+        "tokenId": { "type": "string", "description": "Waitlist token ID" }
+      },
+      "required": ["tokenId"]
+    },
+    "TokenLookup": {
+      "title": "TokenLookup",
+      "description": "Lookup mapping to find tokenId using secure verification token.",
+      "type": "object",
+      "properties": {
+        "tokenId": { "type": "string", "description": "Waitlist token ID" }
+      },
+      "required": ["tokenId"]
+    },
+    "StatsCounter": {
+      "title": "StatsCounter",
+      "description": "Global statistics counters.",
+      "type": "object",
+      "properties": {
+        "verifiedCount": { "type": "integer", "description": "Total quantity of verified users on the waitlist" }
+      },
+      "required": ["verifiedCount"]
+    }
+  },
+  "firestore": {
+    "waitlist/{waitlistId}": {
+      "schema": "WaitlistEntry",
+      "description": "Registry of waitlist entries to have cloud persistence"
+    },
+    "emails/{emailId}": {
+      "schema": "EmailLookup",
+      "description": "Sanitized email map documents"
+    },
+    "verification_tokens/{tokenId}": {
+      "schema": "TokenLookup",
+      "description": "Verification token map documents"
+    },
+    "stats/{statsId}": {
+      "schema": "StatsCounter",
+      "description": "Global statistics tracking"
+    }
+  }
+}

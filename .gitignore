@@ -1,0 +1,21 @@
+node_modules/
+build/
+dist/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+# Node modules
+node_modules/
+
+# Production builds
+dist/
+
+.env
+.env.local
+.env.production
+
+# IDEs and OS files
+.DS_Store
+.vscode/
