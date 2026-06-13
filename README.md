@@ -1,4 +1,4 @@
-To run locally,
+To run locally (please fork the repo first),
 
 1. open terminal 
 2. git clone <repo url>
