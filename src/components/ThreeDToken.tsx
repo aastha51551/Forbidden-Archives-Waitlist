@@ -627,19 +627,10 @@ export default function ThreeDToken({ user, onShareRecorded }: ThreeDTokenProps)
                 disabled={isConjuring}
                 className="flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg bg-black text-xs font-mono tracking-wider border border-pink-700/50 hover:border-pink-500 hover:bg-pink-950/10 text-pink-400 transition-all cursor-pointer disabled:opacity-50"
               >
-                <Instagram className="w-4 h-4 text-pink-500" />
-                Instagram
+                Download
               </button>
 
-              <button
-                id="share-whatsapp-btn"
-                onClick={handleWhatsappShare}
-                disabled={isConjuring}
-                className="flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg bg-black text-xs font-mono tracking-wider border border-emerald-700/50 hover:border-emerald-500 hover:bg-emerald-950/10 text-emerald-400 transition-all cursor-pointer disabled:opacity-50"
-              >
-                <MessageCircle className="w-4 h-4 text-emerald-500" />
-                Whatsapp
-              </button>
+              
             </div>
 
             <button
