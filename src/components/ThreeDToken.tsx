@@ -552,7 +552,7 @@ export default function ThreeDToken({ user, onShareRecorded }: ThreeDTokenProps)
 
   const handleTextShare = () => {
     onShareRecorded("sms");
-    const shareText = `🗝️ I have gained entry to the FORBIDDEN ARCHIVES! Scribed at Rank ${displayNo}.\n\nView my authenticated virtual token here:\n${window.location.protocol}//${window.location.host}/token/${displayTokenId}\n\nJoin the dark circle before the gates close forever.`;
+    const shareText = `🗝️ I have gained entry to the FORBIDDEN ARCHIVES! I am at Rank ${displayNo}.\n\n Get your token at:\n${window.location.protocol}//${window.location.host}\n\nJoin the cult today.`;
     navigator.clipboard.writeText(shareText);
     alert("Archival message template and link copied to clipboard!\nSend it via SMS or chat to invite other seekers.");
   };
