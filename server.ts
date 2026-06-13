@@ -3,20 +3,33 @@ import express from "express";
 import path from "path";
 import fs from "fs";
 import { createServer as createViteServer } from "vite";
+import { GoogleGenAI } from "@google/genai";
 import { initializeApp } from "firebase/app";
 import { getFirestore, doc, setDoc, getDoc, collection, query, where, getDocs, updateDoc } from "firebase/firestore";
 
 const app = express();
 const PORT = Number(process.env.PORT) || 3000;
 
-// Initialize Firebase SDK with lazy validation
-const CONFIG_PATH = path.join(process.cwd(), "firebase-applet-config.json");
-if (!fs.existsSync(CONFIG_PATH)) {
-  throw new Error("Missing Firebase applet config JSON file. Please run the Firebase setup step.");
+// Initialize Firebase SDK with lazy validation (Supports environment variable for secure container hosting)
+let firebaseConfig;
+const FIREBASE_CONFIG_ENV = process.env.FIREBASE_CONFIG;
+
+if (FIREBASE_CONFIG_ENV) {
+  try {
+    firebaseConfig = JSON.parse(FIREBASE_CONFIG_ENV);
+  } catch (err) {
+    throw new Error("Invalid JSON format in FIREBASE_CONFIG environment variable.");
+  }
+} else {
+  const CONFIG_PATH = path.join(process.cwd(), "firebase-applet-config.json");
+  if (!fs.existsSync(CONFIG_PATH)) {
+    throw new Error("Missing Firebase applet config JSON file. Provide a firebase-applet-config.json file or set the FIREBASE_CONFIG environment variable.");
+  }
+  firebaseConfig = JSON.parse(fs.readFileSync(CONFIG_PATH, "utf-8"));
 }
-const firebaseConfig = JSON.parse(fs.readFileSync(CONFIG_PATH, "utf-8"));
+
 const firebaseApp = initializeApp(firebaseConfig);
-const db = getFirestore(firebaseApp, firebaseConfig.firestoreDatabaseId);
+const db = getFirestore(firebaseApp, firebaseConfig?.firestoreDatabaseId || "(default)");
 
 enum OperationType {
   CREATE = 'create',
@@ -55,34 +68,28 @@ function handleFirestoreError(error: unknown, operationType: OperationType, path
   throw new Error(JSON.stringify(errInfo));
 }
 
-
-
-// Generate an occult prophecy. Uses Gemini if available, otherwise falls back to pre-defined atmospheric prophecies.
+// Generate a highly chilling, atmospheric, Gothic occult prophecy about their destiny in the Forbidden Archives.
 async function generateOccultProphecy(name: string): Promise<string> {
-  const fallbacks = [
-    `Your shadow has been carved into row 13 of the forgotten stacks, waiting for the ink to dry.`,
-    `Under the crescent moon, the archives have cataloged your arrival. Your parchment remains locked till midnight.`,
-    `A whisper echoes and settles in the dark library. They speak of your arrival as the key to the final tome.`,
-    `Your sigil has been bound. The third vault recognizes your presence. Remain vigilant inside the corridors.`,
-    `Your name is found etched on the inner rim of the crystal ball, matching a sigil drawn ages ago.`
+  const customTones = [
+    `The heavy oak doors creaked open as they detected the bloodline of ${name}, etching a new registry on page 13.`,
+    `${name}'s shadow has been carved into row 108 of the forgotten stacks, waiting for the cold ink to dry.`,
+    `A whisper echoes through the dark vaulted ceiling: ${name} is the ancient key to the final, locked tome.`,
+    `Your sigil, ${name}, has been bound. The third vault recognizes your bloodline. Remain vigilant inside the corridors.`,
+    `Under the crescent moon, the dark archives cataloged ${name}'s arrival. A blank parchment awaits the final sign.`,
+    `The dust of forgotten centuries settled upon the registry to form the name: ${name}.`,
+    `An iron key turns inside the chest of the Forbidden Libram, bound eternally to the step of ${name}.`,
+    `The Whispering Archivist claims to have seen ${name} walking through the forbidden wing seventy winter solstices ago.`,
+    `Your signature has been found etched in dry ash upon the ancient altar in the East wing, ${name}.`,
+    `A candle flutters and dies in the dark library, signaling the entry of the name '${name}' into the Book of the Lost.`
   ];
-
-  const client = getGeminiClient();
-  if (!client) {
-    return fallbacks[Math.floor(Math.random() * fallbacks.length)];
+  
+  // Use a hashing index of the name to make it consistent or semi-consistent
+  let hash = 0;
+  for (let i = 0; i < name.length; i++) {
+    hash = name.charCodeAt(i) + ((hash << 5) - hash);
   }
-
-  try {
-    const prompt = `The seeker's name is "${name}". Craft a chilling, highly atmospheric, Gothic 1-line or 2-line occult prophecy or archival record entry about their destiny in the Forbidden Archives (e.g., "Scribed in room 4, their shadow is marked on page 13..."). Keep it extremely short (less than 20 words) and incredibly creepy. Do not use titles, lists, or quotation marks.`;
-    const response = await client.models.generateContent({
-      model: "gemini-3.5-flash",
-      contents: prompt,
-    });
-    return response.text?.trim() || fallbacks[0];
-  } catch (error) {
-    console.error("Gemini failed to generate prophecy:", error);
-    return fallbacks[Math.floor(Math.random() * fallbacks.length)];
-  }
+  const index = Math.abs(hash) % customTones.length;
+  return customTones[index];
 }
 
 interface WaitlistEntry {
