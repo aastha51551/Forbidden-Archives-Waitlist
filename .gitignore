@@ -8,5 +8,4 @@ coverage/
 !.env.example
 .env.local
 .env.production
-package-lock.json
 .vscode/
