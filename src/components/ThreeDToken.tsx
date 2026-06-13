@@ -490,7 +490,7 @@ export default function ThreeDToken({ user, onShareRecorded }: ThreeDTokenProps)
             await navigator.share({
               files: [file],
               title: "Forbidden Archives Authored Token",
-              text: `🗝️ I have gained entry to the FORBIDDEN ARCHIVES! Scribed at Rank ${displayNo}.\n\nView my authenticated virtual token here:\n${window.location.protocol}//${window.location.host}/token/${displayTokenId}\n\nJoin the dark circle before the gates close forever.`,
+              text: `🗝️ I have gained entry to the FORBIDDEN ARCHIVES! I am at Rank ${displayNo}.\n\n Get your token at:\n${window.location.protocol}//${window.location.host}\n\nJoin the cult today.`,
             });
             sharedSuccessfully = true;
           }
@@ -510,7 +510,7 @@ export default function ThreeDToken({ user, onShareRecorded }: ThreeDTokenProps)
       }
 
       setConjuringProgress(100);
-      setConjuringLabel(sharedSuccessfully ? "Sigil shared successfully!" : "Sigil video downloaded!");
+      setConjuringLabel(sharedSuccessfully ? "Shared successfully!" : "Downloaded!");
       setTimeout(() => {
         setIsConjuring(false);
         setConjuringProgress(0);
@@ -526,7 +526,7 @@ export default function ThreeDToken({ user, onShareRecorded }: ThreeDTokenProps)
       const elapsed = Date.now() - startTime;
       const pct = Math.min(95, Math.floor((elapsed / duration) * 100));
       setConjuringProgress(pct);
-      setConjuringLabel(`Transmitting HD spectral frames (${pct}%)...`);
+      setConjuringLabel(`Preparing for HD sharing (${pct}%)...`);
 
       if (elapsed >= duration) {
         clearInterval(progressInterval);
@@ -686,7 +686,7 @@ export default function ThreeDToken({ user, onShareRecorded }: ThreeDTokenProps)
             </div>
             
             <span className="text-[10px] text-red-900 font-mono tracking-widest block mt-2 text-right">
-              {conjuringProgress}% BOUND
+              {conjuringProgress}%   DONE
             </span>
           </div>
         </div>
