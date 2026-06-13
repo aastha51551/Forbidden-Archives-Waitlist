@@ -253,13 +253,13 @@ export default function App() {
 
                 <div className="space-y-3.5 text-xs text-gray-300 leading-relaxed leading-5">
                   <p>
-                    Congratulations, <strong className="text-white text-sans font-semibold">{currentUser.name}</strong>. Your coordinates (<em>{currentUser.email}</em>) have been recorded inside the Forbidden Archives leather registry.
+                    Congratulations, <strong className="text-white text-sans font-semibold">{currentUser.name}</strong>. Your email (<em>{currentUser.email}</em>) has been registered with us.
                   </p>
                   <p>
                     Your digital membership token is ready and displayed on the right. You can hover, drag, and tilt the card in 3D using your mouse or screen coordinate. 
                   </p>
                   <p className="text-[11px] text-gray-400">
-                    Feel free to download your custom ambient HD motion video and/or post it on your Instagram, WhatsApp, and socials to flex and invite your friends!
+                    Feel free to download your custom ambient HD motion video to post it on your Instagram, WhatsApp, and socials to flex and invite your friends!
                   </p>
                 </div>
 
