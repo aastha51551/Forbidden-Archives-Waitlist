@@ -50,7 +50,7 @@ export default function GothicDial() {
           <rect x="20" y="15" width="60" height="70" rx="3" strokeWidth="2" />
           <rect x="25" y="20" width="50" height="60" strokeDasharray="3,3" />
           <path d="M30 50 C 40 32, 60 32, 70 50 C 60 68, 40 68, 30 50 Z" strokeWidth="2" />
-          <circle cx="50" cy="50" r="7" fill="rgba(244, 63, 94, 0.3)" stroke="#f43f5e" strokeWidth="1.5" />
+          
         </svg>
       )
     },
@@ -328,19 +328,19 @@ export default function GothicDial() {
               {/* Dynamic Feature Text Details */}
               <div className="space-y-3.5 flex-grow text-left relative z-10">
                 <div className="flex items-center gap-2.5">
-                  <span className={`font-mono text-[9px] font-bold tracking-[0.25em] px-2.5 py-1 rounded-md border uppercase ${features[activeSegment].badgeClass}`}>
-                    {features[activeSegment].category}
-                  </span>
                   <span className="font-mono text-[9px] text-gray-500 tracking-wider">
                    {activeSegment + 1} OF 7
                   </span>
                 </div>
 
-                <h3 className="font-goth-deco text-xl sm:text-2xl text-gray-100 font-bold tracking-wide drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-                  {features[activeSegment].title}
-                </h3>
-
-                
+                <div className="space-y-1.5">
+                  <h3 className="font-goth-deco text-xl sm:text-2xl text-gray-100 font-bold tracking-wide drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                    {features[activeSegment].title}
+                  </h3>
+                  <div className={`font-mono text-[10px] md:text-[11px] font-bold tracking-[0.2em] uppercase ${features[activeSegment].badgeClass.split(" ")[0]}`}>
+                    {features[activeSegment].category}
+                  </div>
+                </div>
               </div>
             </motion.div>
           </AnimatePresence>
