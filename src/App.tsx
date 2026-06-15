@@ -148,13 +148,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#030101] flex flex-col items-center relative Selection:bg-red-900 Selection:text-white pb-12 animate-crt select-none">
       
-      {/* 1. Spooky dim library shelf background texture layer overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center pointer-events-none opacity-15"
-        style={{
-          backgroundImage: `radial-gradient(circle, rgba(10,3,3,0.1) 0%, rgba(2,1,1,1) 95%), url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=1600&auto=format&fit=crop')`
-        }}
-      />
+      
 
       {/* 2. Vintage CRT overlay glow effects */}
       <div className="absolute inset-x-0 top-0 h-[600px] bg-gradient-to-b from-red-950/15 via-black/0 to-transparent pointer-events-none" />
@@ -164,11 +158,11 @@ export default function App() {
         
         {/* Header Branding (Styled exactly after Image 2) */}
         <header className="text-center mb-10 md:mb-16">
-          <div className="inline-block relative">
+          
             <span className="block text-[10px] md:text-xs font-mono tracking-[0.25em] text-red-500 uppercase font-semibold mb-2 bg-red-950/25 px-4 py-1.5 rounded-full border border-red-950">
               YOUR NIGHTMARE FUEL
             </span>
-          </div>
+          
           
           <h1 className="font-goth-deco text-4xl sm:text-5xl md:text-[5.5rem] text-gray-200 mt-2 tracking-wide font-bold">
             FORBIDDEN
