@@ -148,7 +148,13 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#030101] flex flex-col items-center relative Selection:bg-red-900 Selection:text-white pb-12 animate-crt select-none">
       
-      
+      {/* 1. Spooky dim library shelf background texture layer overlay */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center pointer-events-none opacity-15"
+        style={{
+          backgroundImage: `radial-gradient(circle, rgba(10,3,3,0.1) 0%, rgba(2,1,1,1) 95%), url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=1600&auto=format&fit=crop')`
+        }}
+      />
 
       {/* 2. Vintage CRT overlay glow effects */}
       <div className="absolute inset-x-0 top-0 h-[600px] bg-gradient-to-b from-red-950/15 via-black/0 to-transparent pointer-events-none" />
@@ -159,11 +165,9 @@ export default function App() {
         {/* Header Branding (Styled exactly after Image 2) */}
         <header className="text-center mb-10 md:mb-16">
           
-            <span className="block text-[10px] md:text-xs font-mono tracking-[0.25em] text-red-500 uppercase font-semibold mb-2 bg-red-950/25 px-4 py-1.5 rounded-full border border-red-950">
-              YOUR NIGHTMARE FUEL
-            </span>
-          
-          
+          <p className="text-[10px] md:text-sm font-mono tracking-[0.25em] text-red-500 uppercase font-semibold mb-1">
+            YOUR NIGHTMARE FUEL
+          </p>
           <h1 className="font-goth-deco text-4xl sm:text-5xl md:text-[5.5rem] text-gray-200 mt-2 tracking-wide font-bold">
             FORBIDDEN
           </h1>
@@ -176,22 +180,6 @@ export default function App() {
           </p>
         </header>
 
-        {/* Dynamic Waitlist Real-Time Ticker / Seaker Counter banner */}
-        <section id="live-seeker-counter" className="w-full max-w-sm mx-auto mb-12 flex items-center justify-center gap-3.5 p-3.5 rounded-xl bg-[#090303] border border-red-950/40 shadow-inner">
-          {/* Neon pulsating dot */}
-          {/* <div className="relative flex h-3 w-3">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
-          </div>
-
-          <div className="font-mono text-xs text-gray-400">
-            THE CIRCLE OF SEEKERS: 
-            <span className="text-red-500 font-bold ml-1.5 text-sm underline decoration-red-950 decoration-wavy">
-              {liveCount.toLocaleString()}
-            </span> 
-            <span className="text-[10px] text-gray-500 ml-1"> ACTIVE</span>
-          </div> */}
-        </section>
         
         <GothicDial />
         {dbSetupError && (
