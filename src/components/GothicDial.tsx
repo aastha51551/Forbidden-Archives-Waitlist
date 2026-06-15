@@ -8,6 +8,7 @@ interface FeatureItem {
   title: string;
   icon: ReactNode;
   colorClass: string;
+  badgeClass: string;
 }
 
 export default function GothicDial() {
@@ -24,6 +25,7 @@ export default function GothicDial() {
       category: "Paranormal Case Files",
       title: "HUNTERS AND HAUNTED",
       colorClass: "from-red-950/40 via-red-900/10 to-transparent border-red-900/30",
+      badgeClass: "text-red-400 bg-red-950/30 border-red-900",
       icon: (
         <svg viewBox="0 0 100 100" className="w-16 h-16 text-red-500 filter drop-shadow-[0_0_8px_rgba(239,68,68,0.5)]" fill="none" stroke="currentColor" strokeWidth="1.5">
           <path d="M15 20h45l20 20v45H15V20z" strokeWidth="2" strokeLinejoin="miter" />
@@ -41,10 +43,10 @@ export default function GothicDial() {
       id: "illustrations",
       category: "Illustrative Art & Comics",
       title: "EYE CANDIES",
-      
-      colorClass: "from-rose-950/40 via-rose-900/10 to-transparent border-rose-950/30",
+      colorClass: "from-indigo-950/40 via-indigo-900/10 to-transparent border-indigo-900/30",
+      badgeClass: "text-indigo-400 bg-indigo-950/30 border-indigo-900",
       icon: (
-        <svg viewBox="0 0 100 100" className="w-16 h-16 text-rose-500 filter drop-shadow-[0_0_8px_rgba(244,63,94,0.4)]" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <svg viewBox="0 0 100 100" className="w-16 h-16 text-indigo-500 filter drop-shadow-[0_0_8px_rgba(244,63,94,0.4)]" fill="none" stroke="currentColor" strokeWidth="1.5">
           <rect x="20" y="15" width="60" height="70" rx="3" strokeWidth="2" />
           <rect x="25" y="20" width="50" height="60" strokeDasharray="3,3" />
           <path d="M30 50 C 40 32, 60 32, 70 50 C 60 68, 40 68, 30 50 Z" strokeWidth="2" />
@@ -57,7 +59,8 @@ export default function GothicDial() {
       category: "First look at the unreleased",
       title: "EARLY BIRD",
       
-      colorClass: "from-amber-950/40 via-amber-900/10 to-transparent border-amber-900/30",
+      colorClass: "from-yellow-950/40 via-yellow-900/10 to-transparent border-yellow-900/30",
+      badgeClass: "text-yellow-400 bg-yellow-950/30 border-yellow-900",
       icon: (
         <svg viewBox="0 0 100 100" className="w-16 h-16 text-amber-500 filter drop-shadow-[0_0_8px_rgba(245,158,11,0.4)]" fill="none" stroke="currentColor" strokeWidth="1.5">
           <path d="M15 35 h70 v45 H15 V35 z" strokeWidth="2" />
@@ -76,6 +79,7 @@ export default function GothicDial() {
       title: "PICK THEIR BRAINS",
       
       colorClass: "from-stone-900 via-neutral-900/10 to-transparent border-neutral-800/30",
+      badgeClass: "text-stone-400 bg-stone-950/30 border-stone-900",
       icon: (
         <svg viewBox="0 0 100 100" className="w-16 h-16 text-gray-400 filter drop-shadow-[0_0_8px_rgba(255,255,255,0.15)]" fill="none" stroke="currentColor" strokeWidth="1.5">
           <rect x="43" y="25" width="14" height="28" rx="7" strokeWidth="2" fill="black" />
@@ -92,6 +96,7 @@ export default function GothicDial() {
       category: "Flash Fictions",
       title: "MICRO-TERROR",
       colorClass: "from-cyan-950/40 via-cyan-900/10 to-transparent border-cyan-950/30",
+      badgeClass: "text-cyan-400 bg-cyan-950/30 border-cyan-900",
       icon: (
         <svg viewBox="0 0 100 100" className="w-16 h-16 text-cyan-400 filter drop-shadow-[0_0_8px_rgba(34,211,238,0.4)]" fill="none" stroke="currentColor" strokeWidth="1.5">
           <path d="M30 18 H70" strokeWidth="3" />
@@ -108,6 +113,7 @@ export default function GothicDial() {
       category: "Dark Folklore & Secret Rites",
       title: "MYTHOS",
       colorClass: "from-emerald-950/40 via-emerald-900/10 to-transparent border-emerald-950/30",
+      badgeClass: "text-emerald-400 bg-emerald-950/30 border-emerald-900",
       icon: (
         <svg viewBox="0 0 100 100" className="w-16 h-16 text-emerald-500 filter drop-shadow-[0_0_8px_rgba(16,185,129,0.35)]" fill="none" stroke="currentColor" strokeWidth="1.5">
           <circle cx="50" cy="40" r="22" strokeWidth="1" fill="rgba(16, 185, 129, 0.05)" stroke="#10b981" />
@@ -123,6 +129,7 @@ export default function GothicDial() {
       title: "LITERARY TREASURES",
       
       colorClass: "from-purple-950/40 via-purple-900/10 to-transparent border-purple-950/30",
+      badgeClass: "text-purple-400 bg-purple-950/30 border-purple-900",
       icon: (
         <svg viewBox="0 0 100 100" className="w-16 h-16 text-purple-400 filter drop-shadow-[0_0_8px_rgba(192,132,252,0.4)]" fill="none" stroke="currentColor" strokeWidth="1.5">
           <path d="M12 75 C 25 72, 45 78, 50 82 C 55 78, 75 72, 88 75 V28 C 75 25, 55 31, 50 35 C 45 31, 25 25, 12 28 Z" strokeWidth="2" fill="black" />
@@ -321,7 +328,7 @@ export default function GothicDial() {
               {/* Dynamic Feature Text Details */}
               <div className="space-y-3.5 flex-grow text-left relative z-10">
                 <div className="flex items-center gap-2.5">
-                  <span className="font-mono text-[9px] text-red-500 font-bold tracking-[0.25em] bg-red-950/30 px-2.5 py-1 rounded-md border border-red-950 uppercase">
+                  <span className={`font-mono text-[9px] font-bold tracking-[0.25em] px-2.5 py-1 rounded-md border uppercase ${features[activeSegment].badgeClass}`}>
                     {features[activeSegment].category}
                   </span>
                   <span className="font-mono text-[9px] text-gray-500 tracking-wider">
@@ -332,10 +339,6 @@ export default function GothicDial() {
                 <h3 className="font-goth-deco text-xl sm:text-2xl text-gray-100 font-bold tracking-wide drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
                   {features[activeSegment].title}
                 </h3>
-
-                <p className="font-serif text-[13px] sm:text-[14px] text-gray-300 leading-relaxed max-w-xl">
-                  {features[activeSegment].description}
-                </p>
 
                 
               </div>
