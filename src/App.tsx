@@ -170,7 +170,7 @@ export default function App() {
             </span>
           </div>
           
-          <h1 className="font-goth-deco text-4xl sm:text-5xl md:text-[5.5rem] text-gray-200 mt-2 tracking-wide font-bold animate-glow drop-shadow-[0_4px_12px_rgba(185,28,28,0.8)]">
+          <h1 className="font-goth-deco text-4xl sm:text-5xl md:text-[5.5rem] text-gray-200 mt-2 tracking-wide font-bold">
             FORBIDDEN
           </h1>
           <h2 className="font-goth-deco text-2xl sm:text-3.5xl md:text-[4rem] text-red-600 tracking-wider font-semibold -mt-1 md:-mt-4">
