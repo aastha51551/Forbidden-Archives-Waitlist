@@ -79,7 +79,7 @@ export default function App() {
       const res = await fetch(`/api/waitlist/token/${cleanedId}`);
       if (!res.ok) {
         const data = await res.json();
-        throw new Error(data.error || "Token seal was not found in the archives.");
+        throw new Error(data.error || "Token was not found in the archives.");
       }
       const data = await res.json();
       setCurrentUser(data.user);
