@@ -22,7 +22,7 @@ export default function GothicDial() {
     {
       id: "case-files",
       category: "Paranormal Case Files",
-      title: "The hunters and The haunted",
+      title: "HUNTERS AND HAUNTED",
       colorClass: "from-red-950/40 via-red-900/10 to-transparent border-red-900/30",
       icon: (
         <svg viewBox="0 0 100 100" className="w-16 h-16 text-red-500 filter drop-shadow-[0_0_8px_rgba(239,68,68,0.5)]" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -55,7 +55,7 @@ export default function GothicDial() {
     {
       id: "previews",
       category: "First look at the unreleased",
-      title: "Early Bird",
+      title: "EARLY BIRD",
       
       colorClass: "from-amber-950/40 via-amber-900/10 to-transparent border-amber-900/30",
       icon: (
@@ -325,7 +325,7 @@ export default function GothicDial() {
                     {features[activeSegment].category}
                   </span>
                   <span className="font-mono text-[9px] text-gray-500 tracking-wider">
-                    SEGMENT {activeSegment + 1} OF 7
+                   {activeSegment + 1} OF 7
                   </span>
                 </div>
 
