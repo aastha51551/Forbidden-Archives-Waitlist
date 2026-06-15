@@ -625,8 +625,8 @@ export default function ThreeDToken({ user, onShareRecorded }: ThreeDTokenProps)
                 id="share-instagram-btn"
                 onClick={handleInstagramShare}
                 disabled={isConjuring}
-                className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-black text-xs font-mono tracking-wider border border-pink-700/50 hover:border-pink-500 hover:bg-pink-950/10 text-pink-400 transition-all cursor-pointer disabled:opacity-50"
-              >
+                className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-gradient-to-r from-red-950/80 to-red-900/80 hover:from-red-900 hover:to-red-800 text-xs font-mono tracking-widest text-[#fff] border border-red-700/60 hover:shadow-red-950/30 hover:shadow-xl transition-all cursor-pointer disabled:opacity-70"
+            >
                 Download
               </button>
 
