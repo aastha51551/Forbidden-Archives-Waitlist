@@ -159,7 +159,7 @@ export default function GothicForm({ onSuccess }: GothicFormProps) {
           {loading ? (
             <>
               <Loader2 className="w-4 h-4 animate-spin text-red-500" />
-              Casting the spell...
+              submitting...
             </>
           ) : (
             <>

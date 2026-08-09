@@ -5,10 +5,25 @@
   --font-serif-goth: "Array", "Cinzel", Georgia, serif;
   --font-goth-deco: "Array", "Cinzel Decorative", Georgia, serif;
   --font-typewriter: "Special Elite", "Courier New", Courier, monospace;
+  --font-wridrot: "Bodoni Moda", "Playfair Display", "Instrument Serif", "Cormorant Garamond", Georgia, serif;
+  --font-magazine: "Syncopate", "Array", sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Array", sans-serif !important;
+.font-wridrot,
+.font-gothic,
+.font-serif-goth,
+.font-goth-deco,
+.font-orange {
+  font-family: "Bodoni Moda", "Playfair Display", "Instrument Serif", "Cormorant Garamond", Georgia, serif !important;
+}
+
+.font-magazine,
+.font-wide {
+  font-family: "Syncopate", "Array", sans-serif !important;
+}
+
+.text-blood {
+  color: #dc2626 !important;
 }
 
 @layer utilities {
@@ -71,4 +86,54 @@ body {
   color: #d1d5db;
   overflow-x: hidden;
 }
+
+/* Crystal Ball Keyframe Animations */
+@keyframes ball-pulse {
+  0%, 100% {
+    box-shadow: 0 0 40px rgba(185, 28, 28, 0.15), inset 0 0 30px rgba(185, 28, 28, 0.2);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 65px rgba(185, 28, 28, 0.25), inset 0 0 50px rgba(185, 28, 28, 0.35);
+    transform: scale(1.02);
+  }
+}
+
+@keyframes float-mist-1 {
+  0% { transform: translate(-10%, 10%) rotate(0deg) scale(1); opacity: 0.15; }
+  50% { transform: translate(10%, -10%) rotate(180deg) scale(1.1); opacity: 0.35; }
+  100% { transform: translate(-10%, 10%) rotate(360deg) scale(1); opacity: 0.15; }
+}
+
+@keyframes float-mist-2 {
+  0% { transform: translate(15%, -5%) rotate(360deg) scale(1.1); opacity: 0.1; }
+  50% { transform: translate(-15%, 15%) rotate(180deg) scale(0.9); opacity: 0.25; }
+  100% { transform: translate(15%, -5%) rotate(0deg) scale(1.1); opacity: 0.1; }
+}
+
+@keyframes crystal-sparkle {
+  0%, 100% { opacity: 0.1; transform: translateY(0px) scale(0.8); }
+  50% { opacity: 0.7; transform: translateY(-15px) scale(1.2); }
+}
+
+.animate-ball {
+  animation: ball-pulse 6s infinite ease-in-out;
+}
+
+.animate-mist-1 {
+  animation: float-mist-1 12s infinite linear;
+}
+
+.animate-mist-2 {
+  animation: float-mist-2 15s infinite linear;
+}
+
+.animate-sparkle-slow {
+  animation: crystal-sparkle 4s infinite ease-in-out;
+}
+
+.animate-sparkle-fast {
+  animation: crystal-sparkle 2.5s infinite ease-in-out;
+}
+
 
