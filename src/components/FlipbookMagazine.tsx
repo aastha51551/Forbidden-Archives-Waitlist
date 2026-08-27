@@ -298,21 +298,7 @@ export default function FlipbookMagazine() {
           </div>
 
           <div className="flex items-center gap-2">
-            {/* Quick Media Customizer Toggle */}
-            <button
-              onClick={() => setShowMediaEditor(!showMediaEditor)}
-              className={`p-1.5 rounded flex items-center gap-1 text-[11px] transition ${
-                showMediaEditor
-                  ? "bg-red-950 text-red-300 border border-red-800"
-                  : "bg-black/60 text-gray-400 hover:text-white border border-gray-900"
-              }`}
-              title="Replace PNG / MP4 / Audio for Pages"
-            >
-              <Settings2 className="w-3.5 h-3.5 text-red-500" />
-              <span className="hidden sm:inline">Page Media Setup</span>
-            </button>
-
-            {/* Sound Toggle */}
+           {/* Sound Toggle */}
             <button
               onClick={() => setSoundEnabled(!soundEnabled)}
               title={soundEnabled ? "Disable Page Sounds" : "Enable Page Sounds"}
