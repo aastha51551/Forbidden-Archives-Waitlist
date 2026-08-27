@@ -424,7 +424,7 @@ export default function App() {
         <footer className="w-full border-t border-red-950/20 mt-16 pt-8 pb-4 text-center">
           <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-5">
             <a 
-              href="mailto:aasthacreateshorror@gmail.com"
+              href="mailto:wridrotmagazine@gmail.com"
               className="px-5 py-2 hover:bg-red-950/25 border border-red-950/40 hover:border-red-800 text-gray-400 hover:text-red-400 text-[9px] md:text-xs font-mono tracking-widest uppercase rounded font-medium transition-all cursor-pointer inline-block"
             >
               CONTACT US
