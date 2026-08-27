@@ -55,7 +55,7 @@ export const DEFAULT_MAGAZINE_PAGES: PageData[] = [
     bgGradient: "from-[#0d0303] via-black to-[#180505]",
     media: {
       type: "image",
-      url: "https://images.unsplash.com/photo-1509248961158-e54f6934749c?q=80&w=1200&auto=format&fit=crop",
+      url: "https://img2.wikia.nocookie.net/__cb20140329143937/creepypasta/es/images/c/c8/Teke_Teke.jpg",
       caption: ""
     },
     audioUrl: "" // Add your custom MP3 URL here e.g. "/sounds/cover_whisper.mp3"
@@ -68,7 +68,7 @@ export const DEFAULT_MAGAZINE_PAGES: PageData[] = [
     bgGradient: "from-black via-[#0a0202] to-[#120404]",
     media: {
       type: "image",
-      url: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1200&auto=format&fit=crop",
+      url: "https://img2.wikia.nocookie.net/__cb20140329143937/creepypasta/es/images/c/c8/Teke_Teke.jpg",
       caption: ""
     },
     audioUrl: "" // e.g. "/sounds/page2_page_turn.mp3"
@@ -81,7 +81,7 @@ export const DEFAULT_MAGAZINE_PAGES: PageData[] = [
     bgGradient: "from-[#0a0202] via-black to-[#0d0303]",
     media: {
       type: "image",
-      url: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=1200&auto=format&fit=crop",
+      url: "https://img2.wikia.nocookie.net/__cb20140329143937/creepypasta/es/images/c/c8/Teke_Teke.jpg",
       caption: ""
     },
     audioUrl: "" // e.g. "/sounds/page3_well_echo.mp3"
@@ -94,7 +94,7 @@ export const DEFAULT_MAGAZINE_PAGES: PageData[] = [
     bgGradient: "from-[#120404] via-[#080101] to-black",
     media: {
       type: "video",
-      url: "https://assets.mixkit.co/videos/preview/mixkit-fog-rolling-over-dark-forest-trees-41584-large.mp4",
+      url: "https://img2.wikia.nocookie.net/__cb20140329143937/creepypasta/es/images/c/c8/Teke_Teke.jpg",
       caption: ""
     },
     audioUrl: "" // e.g. "/sounds/page4_static.mp3"
@@ -107,7 +107,7 @@ export const DEFAULT_MAGAZINE_PAGES: PageData[] = [
     bgGradient: "from-black via-[#0d0303] to-[#100404]",
     media: {
       type: "image",
-      url: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=1200&auto=format&fit=crop",
+      url: "https://img2.wikia.nocookie.net/__cb20140329143937/creepypasta/es/images/c/c8/Teke_Teke.jpg",
       caption: ""
     },
     audioUrl: "" // e.g. "/sounds/page5_creak.mp3"
@@ -120,7 +120,7 @@ export const DEFAULT_MAGAZINE_PAGES: PageData[] = [
     bgGradient: "from-[#150404] via-[#090202] to-black",
     media: {
       type: "image",
-      url: "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=1200&auto=format&fit=crop",
+      url: "https://img2.wikia.nocookie.net/__cb20140329143937/creepypasta/es/images/c/c8/Teke_Teke.jpg",
       caption: ""
     },
     audioUrl: "" // e.g. "/sounds/back_cover_bell.mp3"
