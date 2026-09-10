@@ -641,6 +641,7 @@ export default function ThreeDToken({ user, onShareRecorded }: ThreeDTokenProps)
               <Share2 className="w-4 h-4 text-red-400" />
               COPY INVITE LINK
             </button>
+            
           </>
         ) : (
           <div className="text-center text-xs text-gray-500 font-mono flex items-center justify-center gap-1.5 py-4 border border-dashed border-gray-900 rounded-lg">

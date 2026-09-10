@@ -24,7 +24,7 @@ import {
 
 export interface PageMedia {
   type: "image" | "video";
-  url: string; // Path or URL to PNG, JPG, WEBP or MP4, WEBM
+  url: string; 
   caption?: string;
 }
 
@@ -35,95 +35,75 @@ export interface PageData {
   type?: string;
   bgGradient?: string;
   media?: PageMedia;
-  audioUrl?: string; // Path or URL to custom page sound (MP3, WAV, OGG)
+  audioUrl?: string; 
 }
 
-// ============================================================================
-// MAGAZINE PAGES CONFIGURATION
-// To customize pages:
-// 1. Put your PNG/JPG image files or MP4 video files into the /public folder
-//    (e.g., /public/pages/page1.png or /public/pages/page1.mp4)
-// 2. Set `media: { type: "image", url: "/pages/page1.png" }` or `{ type: "video", url: "/pages/page1.mp4" }`
-// 3. Set `audioUrl: "/sounds/page1_whisper.mp3"` to assign a custom sound effect to that page!
-// ============================================================================
+
 export const DEFAULT_MAGAZINE_PAGES: PageData[] = [
   {
     pageNumber: 1,
     title: "",
-    subtitle: "Inaugural Edition • Front Cover",
-    type: "Cover",
+    subtitle: "Featured",
+    type: "",
     bgGradient: "from-[#0d0303] via-black to-[#180505]",
     media: {
       type: "image",
-      url: "https://img2.wikia.nocookie.net/__cb20140329143937/creepypasta/es/images/c/c8/Teke_Teke.jpg",
+      url: "/images/2.png",
       caption: ""
     },
-    audioUrl: "" // Add your custom MP3 URL here e.g. "/sounds/cover_whisper.mp3"
+    audioUrl: "/sounds/sparkles.mp3" 
   },
   {
     pageNumber: 2,
     title: "",
-    subtitle: "Inaugural Edition • Page 02",
-    type: "Contents",
+    subtitle: "Featured",
+    type: "",
     bgGradient: "from-black via-[#0a0202] to-[#120404]",
     media: {
       type: "image",
-      url: "https://img2.wikia.nocookie.net/__cb20140329143937/creepypasta/es/images/c/c8/Teke_Teke.jpg",
+      url: "/images/6.png",
       caption: ""
     },
-    audioUrl: "" // e.g. "/sounds/page2_page_turn.mp3"
+    audioUrl: "/sounds/sparkles.mp3" 
   },
   {
     pageNumber: 3,
     title: "",
-    subtitle: "Featured Horror Story • Page 03",
-    type: "Story",
+    subtitle: "Stories, Fictions and More",
+    type: "",
     bgGradient: "from-[#0a0202] via-black to-[#0d0303]",
     media: {
       type: "image",
-      url: "https://img2.wikia.nocookie.net/__cb20140329143937/creepypasta/es/images/c/c8/Teke_Teke.jpg",
+      url: "/images/3.png",
       caption: ""
     },
-    audioUrl: "" // e.g. "/sounds/page3_well_echo.mp3"
+    audioUrl: "/sounds/sparkles.mp3" 
   },
   {
     pageNumber: 4,
     title: "",
-    subtitle: "Paranormal Audio Archives • Page 04",
-    type: "Video Teaser",
+    subtitle: "Chilling Tales",
+    type: "",
     bgGradient: "from-[#120404] via-[#080101] to-black",
     media: {
-      type: "video",
-      url: "https://img2.wikia.nocookie.net/__cb20140329143937/creepypasta/es/images/c/c8/Teke_Teke.jpg",
+      type: "image",
+      url: "/images/4.png",
       caption: ""
     },
-    audioUrl: "" // e.g. "/sounds/page4_static.mp3"
+    audioUrl: "/sounds/sparkles.mp3" 
   },
   {
     pageNumber: 5,
     title: "",
-    subtitle: "Macabre Woodcuts & Ink • Page 05",
-    type: "Art Gallery",
+    subtitle: "From the Community",
+    type: "",
     bgGradient: "from-black via-[#0d0303] to-[#100404]",
     media: {
       type: "image",
-      url: "https://img2.wikia.nocookie.net/__cb20140329143937/creepypasta/es/images/c/c8/Teke_Teke.jpg",
+      url: "/images/5.png",
       caption: ""
     },
-    audioUrl: "" // e.g. "/sounds/page5_creak.mp3"
-  },
-  {
-    pageNumber: 6,
-    title: "",
-    subtitle: "End of Preview • Back Cover",
-    type: "Back Cover",
-    bgGradient: "from-[#150404] via-[#090202] to-black",
-    media: {
-      type: "image",
-      url: "https://img2.wikia.nocookie.net/__cb20140329143937/creepypasta/es/images/c/c8/Teke_Teke.jpg",
-      caption: ""
-    },
-    audioUrl: "" // e.g. "/sounds/back_cover_bell.mp3"
+    audioUrl: "/sounds/sparkles.mp3" 
   }
 ];
 
