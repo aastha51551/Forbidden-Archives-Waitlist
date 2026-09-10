@@ -12,33 +12,6 @@ export default function GothicForm({ onSuccess }: GothicFormProps) {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
-  // Play a beautiful, low, mysterious synthesizer tone inside browser using raw Web Audio API to elevate the sensory feeling!
-  const playOccultChime = () => {
-    try {
-      const AudioCtx = window.AudioContext || (window as any).webkitAudioContext;
-      if (!AudioCtx) return;
-      const ctx = new AudioCtx();
-      
-      // Low sinister pad tone
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      
-      osc.type = "sawtooth";
-      osc.frequency.setValueAtTime(85, ctx.currentTime); // low dark frequency
-      osc.frequency.exponentialRampToValueAtTime(13, ctx.currentTime + 1.2); // slide down
-      
-      gain.gain.setValueAtTime(0.3, ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 1.2); // fade out
-      
-      // Connect and fire
-      osc.connect(gain);
-      gain.connect(ctx.destination);
-      osc.start();
-      osc.stop(ctx.currentTime + 1.3);
-    } catch (e) {
-      // Audio blocked or unsupported, fail silent
-    }
-  };
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -56,7 +29,7 @@ export default function GothicForm({ onSuccess }: GothicFormProps) {
 
     try {
       setLoading(true);
-      playOccultChime();
+      
 
       const response = await fetch("/api/waitlist", {
         method: "POST",

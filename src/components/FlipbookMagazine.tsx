@@ -1,5 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import image2 from "./images/2.png";
+import image3 from "./images/3.png";
+import image4 from "./images/4.png";
+import image5 from "./images/5.png";
+import image6 from "./images/6.png";
+
+import sparklesSound from "./sounds/sparkles.mp3";
 import {
   ChevronLeft,
   ChevronRight,
@@ -48,10 +55,10 @@ export const DEFAULT_MAGAZINE_PAGES: PageData[] = [
     bgGradient: "from-[#0d0303] via-black to-[#180505]",
     media: {
       type: "image",
-      url: "/images/2.png",
+      url: image2,
       caption: ""
     },
-    audioUrl: "/sounds/sparkles.mp3" 
+    audioUrl: sparklesSound 
   },
   {
     pageNumber: 2,
@@ -61,10 +68,10 @@ export const DEFAULT_MAGAZINE_PAGES: PageData[] = [
     bgGradient: "from-black via-[#0a0202] to-[#120404]",
     media: {
       type: "image",
-      url: "/images/6.png",
+      url: image6,
       caption: ""
     },
-    audioUrl: "/sounds/sparkles.mp3" 
+    audioUrl: sparklesSound  
   },
   {
     pageNumber: 3,
@@ -74,10 +81,10 @@ export const DEFAULT_MAGAZINE_PAGES: PageData[] = [
     bgGradient: "from-[#0a0202] via-black to-[#0d0303]",
     media: {
       type: "image",
-      url: "/images/3.png",
+      url: image3,
       caption: ""
     },
-    audioUrl: "/sounds/sparkles.mp3" 
+    audioUrl: sparklesSound  
   },
   {
     pageNumber: 4,
@@ -87,10 +94,10 @@ export const DEFAULT_MAGAZINE_PAGES: PageData[] = [
     bgGradient: "from-[#120404] via-[#080101] to-black",
     media: {
       type: "image",
-      url: "/images/4.png",
+      url: image4,
       caption: ""
     },
-    audioUrl: "/sounds/sparkles.mp3" 
+    audioUrl: sparklesSound 
   },
   {
     pageNumber: 5,
@@ -100,10 +107,10 @@ export const DEFAULT_MAGAZINE_PAGES: PageData[] = [
     bgGradient: "from-black via-[#0d0303] to-[#100404]",
     media: {
       type: "image",
-      url: "/images/5.png",
+      url: image5,
       caption: ""
     },
-    audioUrl: "/sounds/sparkles.mp3" 
+    audioUrl: sparklesSound  
   }
 ];
 
@@ -249,7 +256,7 @@ export default function FlipbookMagazine() {
   const activePage = pages[currentPage];
 
   return (
-    <section id="flipbook-showcase-section" className="w-full max-w-5xl mx-auto my-12 px-2 sm:px-4">
+    <section id="flipbook-showcase-section" className="w-full max-w-4xl mx-auto my-12 px-2 sm:px-4">
       {/* Section Header */}
       <div className="text-center mb-6 space-y-2">
         <h2 className="font-gothic text-2xl sm:text-3xl text-white font-normal tracking-wide">
@@ -390,9 +397,7 @@ export default function FlipbookMagazine() {
             className="w-full max-w-2xl h-[420px] sm:h-[480px] md:h-[500px] relative transition-transform duration-300 transform-gpu"
             style={{ transform: `scale(${zoomLevel})` }}
           >
-            {/* Book Spine Shadow */}
-            <div className="absolute top-0 bottom-0 left-1/2 w-8 -ml-4 z-20 pointer-events-none bg-gradient-to-r from-transparent via-black/80 to-transparent opacity-80" />
-
+            
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentPage}
@@ -432,7 +437,7 @@ export default function FlipbookMagazine() {
                       <img
                         src={activePage.media.url}
                         alt={activePage.title}
-                        className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                        className="max-w-full max-h-full w-auto h-auto object-contain"
                       />
                     )}
 

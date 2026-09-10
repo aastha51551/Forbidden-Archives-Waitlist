@@ -322,29 +322,29 @@ export default function App() {
                   </div>
                   <div>
                     <h3 className="font-gothic text-white font-bold tracking-wider text-base">
-                      SEAL BOUND SECURELY
+                      REGISTERED SUCCESSFULLY
                     </h3>
                     <p className="font-mono text-[9px] text-emerald-400 uppercase tracking-widest">
-                      Registered At Rank #{currentUser.displayNumber}
+                      At Rank #{currentUser.displayNumber}
                     </p>
                   </div>
                 </div>
 
                 <div className="space-y-3.5 text-xs text-gray-300 leading-relaxed leading-5">
                   <p>
-                    Congratulations, <strong className="text-white text-sans font-semibold">{currentUser.name}</strong>. Your email (<em>{currentUser.email}</em>) has been registered with us.
+                    Congratulations, <strong className="text-white text-sans font-semibold">{currentUser.name}</strong>. Your email (<em>{currentUser.email}</em>) has been registered with us. Kindly sign up to our Patreon Page (below the token) to be notified before every magazine issue.
                   </p>
                   <p>
-                    Your digital membership token is ready and displayed on the right. You can hover, drag, and tilt the card in 3D using your mouse or screen coordinate. 
+                    Your digital membership token is ready (scroll down if not on PC). You can hover, drag, and tilt the card in 3D using your mouse or screen coordinate. 
                   </p>
                   <p className="text-[11px] text-gray-400">
-                    Feel free to download your custom ambient HD motion video to post it on your Instagram, WhatsApp, and socials to flex and invite your friends!
+                    Feel free to download your token to post it on your Instagram, WhatsApp, and socials to flex and invite your friends!
                   </p>
                 </div>
 
                 <div className="pt-2 border-t border-gray-900 flex justify-between items-center">
                   <span className="font-mono text-[9px] text-gray-600">
-                    TOKEN SECURED FOR LIFE
+                    WRIDROT MAGAZINE
                   </span>
                   
                   <button

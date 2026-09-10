@@ -554,7 +554,7 @@ export default function ThreeDToken({ user, onShareRecorded }: ThreeDTokenProps)
     onShareRecorded("sms");
     const shareText = `🗝️ I have gained entry to the FORBIDDEN ARCHIVES! I am at Rank ${displayNo}.\n\n Get your token at:\n${window.location.protocol}//${window.location.host}\n\nJoin the cult today.`;
     navigator.clipboard.writeText(shareText);
-    alert("Archival message template and link copied to clipboard!\nSend it via SMS or chat to invite other seekers.");
+    alert("link copied to clipboard!\nSend it via SMS or chat to invite others.");
   };
 
   return (
@@ -621,6 +621,8 @@ export default function ThreeDToken({ user, onShareRecorded }: ThreeDTokenProps)
             </div>
             
             <div className="grid grid-cols-2 gap-3">
+
+              {/* Download Video */}
               <button
                 id="share-instagram-btn"
                 onClick={handleInstagramShare}
@@ -628,8 +630,20 @@ export default function ThreeDToken({ user, onShareRecorded }: ThreeDTokenProps)
                 className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-black text-xs font-mono tracking-wider border border-pink-700/50 hover:border-pink-500 hover:bg-pink-950/10 text-pink-400 transition-all cursor-pointer disabled:opacity-50"
               >
                 <Download className="w-4 h-4 text-pink-400" />
-                DOWNLOAD MP4 VIDEO
-              </button>              
+                DOWNLOAD
+              </button>
+
+              {/* Patreon */}
+              <a
+                id="patreon-btn"
+                href="https://patreon.com/Wridrot?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-black text-xs font-mono tracking-wider border border-red-700/50 hover:border-red-500 hover:bg-red-950/20 text-red-400 transition-all"
+              >
+                SIGN UP ON PATREON
+              </a>
+
             </div>
 
             <button
