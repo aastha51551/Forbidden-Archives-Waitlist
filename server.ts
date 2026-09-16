@@ -75,7 +75,6 @@ function handleFirestoreError(error: unknown, operationType: OperationType, path
   }
   const index = Math.abs(hash) % customTones.length;
   return customTones[index];
-}
 
 interface WaitlistEntry {
   id: string; // unique code like FA-XXXXXX
