@@ -378,7 +378,7 @@ export default function App() {
                     type="text"
                     value={retrievalId}
                     onChange={(e) => setRetrievalId(e.target.value)}
-                    placeholder="ENTER COVEN ID (e.g. FA-10943)"
+                    placeholder="ENTER ID (e.g. WM11111)"
                     className="w-full pl-9 pr-3 py-1.5 bg-black text-xs text-gray-300 font-mono border border-gray-900 rounded-lg placeholder-gray-800 focus:outline-none focus:border-red-950/80 transition-all uppercase"
                   />
                 </div>
