@@ -85,7 +85,7 @@ export default function App() {
       setCurrentUser(data.user);
       setRetrievalSuccess(true);
     } catch (err: any) {
-      setRetrievalError(err.message || "Failed to retrieve your token scroll.");
+      setRetrievalError(err.message || "Failed to retrieve your token.");
     }
   };
 
