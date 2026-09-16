@@ -607,7 +607,7 @@ export default function ThreeDToken({ user, onShareRecorded }: ThreeDTokenProps)
             Your Spell
           </span>
           <p className="font-serif italic text-gray-300 text-sm leading-relaxed leading-6 px-1">
-            "blah blah blah blah blah"
+            "By will and word, by earth and flame, let what I seek come in my name. So mote it be."
           </p>
         </div>
       )}
