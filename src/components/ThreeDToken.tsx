@@ -660,7 +660,7 @@ export default function ThreeDToken({ user, onShareRecorded }: ThreeDTokenProps)
         ) : (
           <div className="text-center text-xs text-gray-500 font-mono flex items-center justify-center gap-1.5 py-4 border border-dashed border-gray-900 rounded-lg">
             <AlertCircle className="w-4 h-4 text-gray-600" />
-            Submit the form on the left to get your token
+            Submit the waitlist form to get your token
           </div>
         )}
       </div>
