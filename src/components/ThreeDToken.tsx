@@ -22,7 +22,7 @@ export default function ThreeDToken({ user, onShareRecorded }: ThreeDTokenProps)
   // Active waitlist details fallback
   const displayName = user?.name || "YOUR NAME";
   const displayNo = user ? `#00${user.displayNumber}` : "#00????";
-  const displayTokenId = user?.id || "FA-XXXXXX";
+  const displayTokenId = user?.id || "WMXXXXXX";
   const displayProphecy = user?.prophecy || "Searching for your name in the archives...";
 
   // Perspective 3D Tilt effect
