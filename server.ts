@@ -67,6 +67,21 @@ function handleFirestoreError(error: unknown, operationType: OperationType, path
   console.error('Firestore Error: ', JSON.stringify(errInfo));
   throw new Error(JSON.stringify(errInfo));
 }
+
+// Generate a highly chilling, atmospheric, Gothic occult prophecy about their destiny in the Forbidden Archives.
+async function generateOccultProphecy(name: string): Promise<string> {
+  const customTones = [
+    `The heavy oak doors creaked open as they detected the bloodline of ${name}, etching a new registry on page 13.`,
+    `${name}'s shadow has been carved into row 108 of the forgotten stacks, waiting for the cold ink to dry.`,
+    `A whisper echoes through the dark vaulted ceiling: ${name} is the ancient key to the final, locked tome.`,
+    `Your sigil, ${name}, has been bound. The third vault recognizes your bloodline. Remain vigilant inside the corridors.`,
+    `Under the crescent moon, the dark archives cataloged ${name}'s arrival. A blank parchment awaits the final sign.`,
+    `The dust of forgotten centuries settled upon the registry to form the name: ${name}.`,
+    `An iron key turns inside the chest of the Forbidden Libram, bound eternally to the step of ${name}.`,
+    `The Whispering Archivist claims to have seen ${name} walking through the forbidden wing seventy winter solstices ago.`,
+    `Your signature has been found etched in dry ash upon the ancient altar in the East wing, ${name}.`,
+    `A candle flutters and dies in the dark library, signaling the entry of the name '${name}' into the Book of the Lost.`
+  ];
   
   // Use a hashing index of the name to make it consistent or semi-consistent
   let hash = 0;
@@ -75,6 +90,7 @@ function handleFirestoreError(error: unknown, operationType: OperationType, path
   }
   const index = Math.abs(hash) % customTones.length;
   return customTones[index];
+}
 
 interface WaitlistEntry {
   id: string; // unique code like FA-XXXXXX
