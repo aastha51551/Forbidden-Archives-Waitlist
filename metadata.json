@@ -1,6 +1,6 @@
 {
-  "name": "Forbidden Archives",
-  "description": "Waitlist portal for Forbidden Archives, an online horror magazine. Features a dynamic 3D virtual oracle token, name personalization, email validation, and social media sharing.",
+  "name": "Wridrot Magazine",
+  "description": "Waitlist portal for Wridrot, an online horror magazine. Features a dynamic 3D virtual oracle token, name personalization, email validation, and social media sharing.",
   "requestFramePermissions": [],
   "majorCapabilities": []
 }
