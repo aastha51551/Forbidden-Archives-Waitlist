@@ -1,7 +1,7 @@
 # Security Specification: Forbidden Archives Waitlist
 
 ## 1. Data Invariants
-- Each waitlist entry is uniquely identified by its custom `id` (e.g. `FA-XXXXXX`).
+- Each waitlist entry is uniquely identified by its custom `id` (e.g. `WM-XXXXXX`).
 - Anyone can create an entry to sign up for the waitlist.
 - Anyone can retrieve a specific waitlist token if they provide the exact, unique token ID (`get` access).
 - Blanket scraping/listing of waitlist entries is strictly forbidden to prevent PII exposure (email addresses).
