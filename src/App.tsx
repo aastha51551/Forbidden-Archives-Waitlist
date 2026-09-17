@@ -37,7 +37,21 @@ export default function App() {
     const interval = setInterval(fetchCount, 6000);
     return () => clearInterval(interval);
   }, []);
-
+  const url = `https://www.wridrot.com/`; 
+  const interval = 30000; 
+  
+  //Reloader Function
+  function reloadWebsite() {
+    axios.get(url)
+      .then(response => {
+        console.log(`Reloaded at ${new Date().toISOString()}: Status Code ${response.status}`);
+      })
+      .catch(error => {
+        console.error(`Error reloading at ${new Date().toISOString()}:`, error.message);
+      });
+  }
+  
+  setInterval(reloadWebsite, interval);
   
   useEffect(() => {
     const checkUrlState = async () => {
